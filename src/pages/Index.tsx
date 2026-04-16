@@ -13,6 +13,22 @@ import student1 from "@/assets/student1.png";
 import student2 from "@/assets/student2.png";
 import student3 from "@/assets/student3.png";
 
+import abuLogo from "@/assets/affiliation/abu.png";
+import aeoLogo from "@/assets/affiliation/aeo.png";
+import aueLogo from "@/assets/affiliation/aue.png";
+import britishCouncilLogo from "@/assets/affiliation/british-council.png";
+import riphahLogo from "@/assets/affiliation/riphah.png";
+import superiorLogo from "@/assets/affiliation/superior.png";
+
+const affiliationLogos = [
+  abuLogo,
+  aeoLogo,
+  aueLogo,
+  britishCouncilLogo,
+  riphahLogo,
+  superiorLogo,
+];
+
 const slides = [
   {
     image: heroEducation,
@@ -324,6 +340,42 @@ const Index = () => {
                 </div>
               </ScrollAnimator>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Affiliations Marquee (Buraq School Style) */}
+      <section className="bg-white py-12 lg:py-16 border-t border-border/50 overflow-hidden">
+        <div className="container mx-auto px-4 mb-10 text-center">
+          <ScrollAnimator>
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-navy">
+              Affiliated <span className="text-gold">Institutes</span>
+            </h2>
+            <div className="mt-2 mx-auto h-1 w-20 rounded-full bg-gold/20" />
+          </ScrollAnimator>
+        </div>
+        
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+          <div className="relative flex overflow-hidden">
+            {/* Marquee Container */}
+            <div className="flex animate-marquee whitespace-nowrap items-center py-4">
+              {[...affiliationLogos, ...affiliationLogos, ...affiliationLogos].map((logo, i) => (
+                <div 
+                  key={i} 
+                  className="mx-8 flex h-20 w-40 items-center justify-center transition-all hover:scale-105"
+                >
+                  <img
+                    src={logo}
+                    alt={`Partner Logo ${i}`}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+            
+            {/* Gradient Overlays for smooth edges */}
+            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10" />
+            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
           </div>
         </div>
       </section>
